@@ -1,3 +1,4 @@
+"use strict";
 let tasks = [];
 
 const addTask = () => {
@@ -15,12 +16,12 @@ const addTask = () => {
     const task = tasks[i];
     const taskLi = document.createElement("li");
     taskLi.innerHTML = `
-      <div class="task-item">
-        <div class="task">
+    <div class="task-item">
+    <div class="task">
           <input type="checkbox" class="checkbox" ${
             task.completed ? "checked" : ""
           }/>
-          <p>${task.text}</p>
+          <p class="task-p">${task.text}</p>
         </div>
         <div class="icons">
           <span class="edit-btn">✏️</span>
@@ -28,13 +29,69 @@ const addTask = () => {
         </div>
       </div>`;
 
-    // Append to list first
     taskList.appendChild(taskLi);
 
-    // Use querySelector inside taskLi to target the correct button
-    taskLi.querySelector(".delete-btn").addEventListener("click", () => {
-      tasks.splice(i, 1); // Remove from array
-      addTask(); // Re-render the list
+    const deleteButton = taskLi.querySelector(".delete-btn");
+    const editBtn = taskLi.querySelector(".edit-btn");
+    const taskP = taskLi.querySelector(".task-p");
+    const saveBtn = document.createElement("span");
+    const checkbox = taskLi.querySelector(".checkbox");
+    const taskDiv = taskLi.querySelector(".task-item");
+
+    saveBtn.textContent = "💾";
+    saveBtn.className = "save-btn";
+
+    deleteButton.addEventListener("click", () => {
+      tasks.splice(i, 1);
+      addTask();
+    });
+
+    editBtn.addEventListener("click", () => {
+      taskP.contentEditable = "true";
+      taskP.focus();
+      editBtn.style.display = "none";
+      deleteButton.replaceWith(saveBtn);
+      taskP.focus();
+      document.execCommand("selectAll", false, null);
+      document.getSelection().collapseToEnd();
+
+      saveBtn.addEventListener("click", () => {
+        taskP.contentEditable = "false";
+        tasks[i].text = taskP.textContent.trim();
+        editBtn.style.display = "inline";
+        saveBtn.replaceWith(deleteButton);
+      });
+    });
+
+    taskP.addEventListener("blur", () => {
+      taskP.contentEditable = "false";
+      tasks[i].text = taskP.textContent.trim();
+      editBtn.style.display = "inline";
+      saveBtn.replaceWith(deleteButton);
+    });
+
+    taskP.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        taskP.blur();
+        editBtn.style.display = "inline";
+        saveBtn.replaceWith(deleteButton);
+      }
+    });
+
+    if (task.completed) {
+      taskP.classList.add("completed");
+    }
+
+    checkbox.addEventListener("change", () => {
+      task.completed = checkbox.checked;
+      if (checkbox.checked) {
+        taskP.classList.add("completed");
+        taskDiv.classList.add("completed-div");
+      } else {
+        taskP.classList.remove("completed");
+        taskDiv.classList.remove("completed-div");
+      }
     });
   }
 };
