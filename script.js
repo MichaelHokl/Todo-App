@@ -23,7 +23,7 @@ const addTask = () => {
           <p>${task.text}</p>
         </div>
         <div class="icons">
-          <span>✏️</span>
+          <span class="edit-btn">✏️</span>
           <span class="delete-btn">🗑️</span>
         </div>
       </div>`;
