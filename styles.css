@@ -4,15 +4,15 @@
   box-sizing: border-box;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 1rem;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 body {
-  background-color: rgb(73, 51, 123);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  object-fit: cover;
 }
 
 .container {
@@ -24,7 +24,6 @@ body {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(8, 8, 125);
   padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 0 15px 2px black;
@@ -34,16 +33,22 @@ body {
 h1 {
   font-size: 3rem;
   margin-bottom: 10px;
-  text-shadow: 2px 2px black;
-}
-
-p {
-  margin-bottom: 45px;
-  font-size: 0.9rem;
 }
 
 .subtitle {
   font-size: 1.3rem;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  border: solid rgba(0, 0, 0, 0.5);
 }
 
 form {
@@ -57,9 +62,9 @@ form {
 .task-input {
   padding: 10px;
   border-radius: 10px;
-  border: none;
+  border: 2px solid rgba(0, 0, 0, 0.5);
   flex: 1;
-  color: rgb(8, 8, 125);
+  color: rgb(0, 0, 0);
   font-size: 1rem;
   font-weight: bold;
 }
@@ -72,9 +77,9 @@ form {
   border-radius: 50%;
   margin-left: 10px;
   outline: none;
-  border: none;
+  border: 2px solid rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  color: rgb(8, 8, 125);
+  color: rgb(0, 0, 0);
   font-weight: bold;
 }
 
@@ -96,54 +101,67 @@ form {
 .task-list::-webkit-scrollbar {
   display: none;
 }
-
-li {
-  list-style: none;
-}
-.task-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: rgb(255, 255, 255);
-  margin-bottom: 15px;
-  border-radius: 10px;
-}
-
-.task {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-}
-.task > p {
-  margin: 0;
-  margin-left: 10px;
-  color: rgb(8, 8, 125);
-  font-weight: bold;
-  word-break: break-word;
-}
-
-.task-p:focus {
-  outline: none;
-}
-
-.icons span:last-of-type {
-  margin-left: 10px;
-}
-
-.icons {
-  cursor: pointer;
-}
-
-.checkbox {
-  font-size: 18px;
-}
-
 .completed {
   text-decoration: line-through;
   color: #989898;
 }
 .completed-div {
-  background-color: rgb(152, 146, 146);
+  background-color: rgb(218, 213, 213);
+}
+
+li {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+li div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-checkbox {
+  justify-content: flex-start;
+  gap: 15px;
+}
+.btn-div {
+  justify-content: flex-end;
+  gap: 10px;
+}
+.btn-div button {
+  width: 60px;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+.btn-div button:hover,
+button:hover {
+  transform: scale(1.1);
+}
+.task {
+  font-size: 1.2rem;
+  margin: 0;
+  color: rgb(0, 0, 0);
+}
+
+.task:focus {
+  outline: none;
+}
+
+.change-bg {
+  width: auto;
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
