@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-image: url(/pictures/img2.jpg);
   object-fit: cover;
 }
 
@@ -150,6 +151,7 @@ button:hover {
   font-size: 1.2rem;
   margin: 0;
   color: rgb(0, 0, 0);
+  text-wrap: nowrap;
 }
 
 .task:focus {

@@ -14,6 +14,10 @@ const loadTasks = function () {
     renderTask();
   }
 };
+const toggleButtonVisibility = function (editBtn, deleteBtn, isCompleted) {
+  const visibility = isCompleted ? "hidden" : "visible";
+  editBtn.style.visibility = visibility;
+};
 
 // ----ADDING A TASK TO THE ARRAY----//
 const addtask = function () {
@@ -57,13 +61,7 @@ const renderTask = function () {
     const editBtn = liElement.querySelector(".edit-btn");
     const deleteBtn = liElement.querySelector(".delete-btn");
 
-    if (task.completed) {
-      editBtn.style.visibility = "hidden";
-      deleteBtn.style.visibility = "hidden";
-    } else {
-      editBtn.style.visibility = "visible";
-      deleteBtn.style.visibility = "visible";
-    }
+    toggleButtonVisibility(editBtn, deleteBtn, task.completed);
 
     taskList.appendChild(liElement);
   });
@@ -140,13 +138,7 @@ document.querySelector(".task-list").addEventListener("click", (e) => {
     saveTasks();
 
     //Hiding and making buttons visible
-    if (taskToStrikeThrough.completed) {
-      editBtn.style.visibility = "hidden";
-      deleteBtn.style.visibility = "hidden";
-    } else {
-      editBtn.style.visibility = "visible";
-      deleteBtn.style.visibility = "visible";
-    }
+    toggleButtonVisibility(editBtn, deleteBtn, taskToStrikeThrough.completed);
   }
 });
 
