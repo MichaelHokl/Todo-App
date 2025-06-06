@@ -10,7 +10,10 @@ A clean and intuitive web-based To-Do application designed to help you manage yo
 - **Mark as Complete** – Easily mark tasks as completed with a checkbox  
 - **Delete Tasks** – Remove tasks you no longer need  
 - **Responsive Design** – Works well on various screen sizes (a recommended best practice)  
-- **User-Friendly Interface** – A straightforward design for easy task management  
+- **User-Friendly Interface** – A straightforward design for easy task management
+- **Local Storage** - Tasks will stay if the page is reloaded
+- **Done Task Marking** - Done tasks are greyed out and can be deleted
+- **Editing Tasks** - Tasks can be edited. E"nter" and "Save" will save the new task. "Esc" will cancel the editing process 
 
 ---
 
@@ -30,13 +33,18 @@ A clean and intuitive web-based To-Do application designed to help you manage yo
 2. **Delete a Task**  
    Click the **Delete** button or icon next to a task to remove it from your list.
 
----
+3. **Mark a Task as Completed**
+   Click on the **checkbox** to mark done tasks. This will grey out the task.
 
-## ⚙️ Things I Am Working On
+4. **Edit a Task**
+   Click on **Edit** to edit the task. This will allow you to change the task. When done click **Save** or hit enter. If you want  to cancel the edit, jsut hit        **Esc** and the process is aborded and the original task is restored.
 
-1. **Local Storage**
-   Right now my App does not have a local storage function. Once got familiar with the concepts and it works, I will add it right away.
+5. **Change the Background**
+   There is not really a use for it but i thought it might be fun. Just hit **Change Background** in the top left.
 
----
+6. **Local Storage**
+   Want to reload the page? Do it every task is stored in the local storage
+
+
 
 ---
