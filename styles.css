@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url(./pictures/img2.jpg);
+  background-image: url('./pictures/img2.jpg');
   object-fit: cover;
 }
 
